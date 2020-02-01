@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/smith.png-c59f1e922064bfcada2307f186772509.stex"
+path="res://.import/2_1_2020_2.01.png-5005ee5c52d68e6ce99588ca74360b9e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/entities/smith/smith.png"
-dest_files=[ "res://.import/smith.png-c59f1e922064bfcada2307f186772509.stex" ]
+source_file="res://textures/snapshots/2_1_2020_2.01.png"
+dest_files=[ "res://.import/2_1_2020_2.01.png-5005ee5c52d68e6ce99588ca74360b9e.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

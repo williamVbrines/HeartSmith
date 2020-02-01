@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://textures/entities/smith/smith.png" type="Texture" id=1]
+[ext_resource path="res://scripts/player/player.gd" type="Script" id=2]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 7.07694
+height = 25.9315
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 6.10561
+
+[node name="Player" type="KinematicBody2D"]
+script = ExtResource( 2 )
+
+[node name="Top" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+vframes = 5
+hframes = 4
+frame = 1
+
+[node name="Bottom" type="Sprite" parent="Top"]
+position = Vector2( 0, 14 )
+texture = ExtResource( 1 )
+vframes = 5
+hframes = 4
+frame = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -0.19371, 9.03144 )
+shape = SubResource( 1 )
+
+[node name="Ground" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
+position = Vector2( -0.138885, 26.2339 )
+shape = SubResource( 2 )
+[connection signal="body_entered" from="Ground" to="." method="_on_Ground_body_entered"]
+[connection signal="body_exited" from="Ground" to="." method="_on_Ground_body_exited"]
