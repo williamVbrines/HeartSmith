@@ -1,8 +1,13 @@
 extends Node2D
 
 onready var _sprite  = $Sprite
+onready var _animation = $AnimationPlayer
 
 signal collected; 
+
+func _ready():
+	_animation.play("up_down");
+	_animation.seek(rand_range(0, _animation.current_animation_length));
 
 func _input(event):
 	if(_sprite.frame == 1 && event.is_action_pressed("ui_accept")):

@@ -1,9 +1,10 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://textures/tileSets/cave_tileset_16x16.png" type="Texture" id=1]
 [ext_resource path="res://scripts/player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scripts/items/heart/Heart.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scripts/testcave/counter.gd" type="Script" id=4]
+[ext_resource path="res://scripts/heartMap/HeartMap.tscn" type="PackedScene" id=5]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
@@ -184,5 +185,7 @@ script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="HeartMap" parent="." instance=ExtResource( 5 )]
 [connection signal="collected" from="Heart" to="Count" method="_on_Heart_collected"]
 [connection signal="collected" from="Heart2" to="Count" method="_on_Heart_collected"]

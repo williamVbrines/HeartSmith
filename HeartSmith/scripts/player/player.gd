@@ -19,6 +19,8 @@ var _dir : int = 0;
 var _on_ground : bool = false;
 var _can_jump : bool = false;
 
+var _move_tartget : Vector2 = Vector2(0,0);
+var _move_to_tarage : bool = false;
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -27,6 +29,9 @@ func _ready():
 func _input(event):
 	if(event.is_action_released("ui_up") && _can_jump == true):
 		_can_jump = false;
+
+		
+		
 		
 func _process(delta):
 	
