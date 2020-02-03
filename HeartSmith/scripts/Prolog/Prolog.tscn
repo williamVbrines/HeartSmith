@@ -1,0 +1,66 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://textures/tileSets/cave_tileset_16x16.png" type="Texture" id=1]
+[ext_resource path="res://scripts/sceneChanger/SceneChanger.tscn" type="PackedScene" id=2]
+[ext_resource path="res://textures/ui/text_box.png" type="Texture" id=3]
+[ext_resource path="res://scripts/items/heart/Heart.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scripts/Prolog/Prolog.gd" type="Script" id=5]
+[ext_resource path="res://textures/text/Quikhand.ttf" type="DynamicFontData" id=6]
+
+[sub_resource type="DynamicFont" id=2]
+font_data = ExtResource( 6 )
+
+[sub_resource type="Animation" id=1]
+resource_name = "fade"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Text:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0.0862745, 0.101961, 0.0980392, 1 ), Color( 0.0862745, 0.101961, 0.0980392, 0 ) ]
+}
+
+[node name="Prolog" type="Node2D"]
+scale = Vector2( 2, 2 )
+script = ExtResource( 5 )
+
+[node name="BG" type="Sprite" parent="."]
+position = Vector2( 255.808, 148.822 )
+scale = Vector2( 29.4231, 17.5358 )
+texture = ExtResource( 1 )
+vframes = 8
+hframes = 8
+frame = 9
+
+[node name="TextBoxSprite" type="Sprite" parent="."]
+position = Vector2( 256.522, 241.571 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 3 )
+
+[node name="SceneChanger" parent="." instance=ExtResource( 2 )]
+
+[node name="Heart" parent="." instance=ExtResource( 4 )]
+position = Vector2( 257.139, 160.225 )
+scale = Vector2( 2, 2 )
+
+[node name="Text" type="Label" parent="."]
+modulate = Color( 0.0862745, 0.101961, 0.0980392, 0 )
+margin_left = 28.5322
+margin_top = 242.751
+margin_right = 261.532
+margin_bottom = 267.751
+custom_fonts/font = SubResource( 2 )
+text = "Texrt"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/fade = SubResource( 1 )
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
